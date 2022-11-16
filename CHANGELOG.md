@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/pdemagny/asdf-liqoctl/compare/v1.0.0...v1.0.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* **pre-releases:** fix pre-releases installation by downloading binaries instead of archives ([4b434d0](https://www.github.com/pdemagny/asdf-liqoctl/commit/4b434d0df8d048dca30bdfb7b798ed8aadfc9dd9))
+
 ## 1.0.0 (2022-11-10)
 
 
