@@ -61,7 +61,7 @@ download_release() {
 
   arch=$(get_arch)
   os=$(get_os)
-  url="$GH_REPO/releases/download/v${version}/liqoctl-${os}-${arch}.tar.gz"
+  url="$GH_REPO/releases/download/v${version}/liqoctl-${os}-${arch}"
 
   echo "* Downloading $TOOL_NAME release $version..."
   curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -77,11 +77,12 @@ install_version() {
   fi
 
   (
-    mkdir -p "$install_path"
-    cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
+
+    mkdir -p "$install_path"
+    cp -r "$ASDF_DOWNLOAD_PATH/${tool_cmd}-${version}" "$install_path/$tool_cmd"
+
     test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
     echo "$TOOL_NAME $version installation was successful!"
